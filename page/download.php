@@ -1,7 +1,7 @@
 <?php 
     require_once "config.php";
 ?>
-<h3>Berkas</h3>
+<h3>Berkas Warga</h3>
 <div class="row">
      <div class="col-lg-12">
      <table id="tabel-data" class="table table-hover table-bordered" style="margin-top: 10px">

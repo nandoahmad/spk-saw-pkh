@@ -84,7 +84,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                <thead>
 	                    <tr>
 	                        <th>No</th>
-	                        <th>Jenis</th>
+	                        <th>Jenis Bantuan</th>
 	                        <th>Kriteria</th>
 	                        <th>Keterangan</th>
 	                        <th>Bobot</th>
@@ -103,7 +103,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                            <td><?=$row['bobot']?></td>
 	                            <td>
 	                                <div class="btn-group">
-	                                    <a href="?page=penilaian&action=update&key=<?=$row['kd_penilaian']?>" class="btn btn-warning btn-xs">Edit</a>
+	                                    <a href="?page=penilaian&action=update&key=<?=$row['kd_penilaian']?>" class="btn btn-info btn-xs">Edit</a>
 	                                    <a href="?page=penilaian&action=delete&key=<?=$row['kd_penilaian']?>" class="btn btn-danger btn-xs">Hapus</a>
 	                                </div>
 	                            </td>

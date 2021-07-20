@@ -16,14 +16,12 @@ if ($cekBiodata['countBiodata'] == 0) {
 ?>
 <html>
 <head>
-	<title>Upload Berkas Calon warga Baru Grand City Mall</title>
+	<title>Upload Berkas Calon Penerima Bantuan</title>
 </head>
 <body>
 
 	<h1>Upload Berkas Anda Disini</h1>
-	<h3>Dengan Format Nama_Nama File_Nama jenis_bantuan Yang Di Daftar</h3>
 	<div class="form-group">
-				<label>File 1:</label>
 				<form action="./proses/proses_upload.php" method="post" enctype="multipart/form-data">
 				<input type="file" name="file1">
 				<input type="hidden" name="kd_pengguna1" value="<?php echo $cekBiodata['nomor']?>">

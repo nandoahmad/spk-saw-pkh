@@ -77,7 +77,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                <thead>
 	                    <tr>
 	                        <th>No</th>
-	                        <th>Beasiswa</th>
+	                        <th>Jenis Bantuan</th>
 	                        <th>Kriteria</th>
 	                        <th>Sifat</th>
 	                        <th>Aksi</th>

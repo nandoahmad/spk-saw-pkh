@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	                  <label for="pengalaman_kerja"style="margin-top:15px">Disabilitas</label>
 										<select class="form-control" name="disabilitas">
 											<option>---</option>
-											<option value="tidak ada" <?= $row != null && $row['disabilitas'] == 'tidak ada' ? 'selected' : '' ?> >Tidak Ada</option>
+											<option value="tidak disabilitas" <?= $row != null && $row['disabilitas'] == 'tidak disabilitas' ? 'selected' : '' ?> >Tidak Disabilitas</option>
 											<option value="mental" <?= $row != null && $row['disabilitas'] == 'mental' ? 'selected' : '' ?> >Mental</option>
 											<option value="intelektual" <?= $row != null && $row['disabilitas'] == 'intelektual' ? 'selected' : '' ?> >Intelektual</option>
 											<option value="fisik" <?= $row != null && $row['disabilitas'] == 'fisik' ? 'selected' : '' ?> >Fisik</option>

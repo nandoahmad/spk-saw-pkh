@@ -32,10 +32,10 @@ if (!isset($_SESSION["is_logged"])) {
                         <li ><a href="?page=home" > <i class="glyphicon glyphicon-home"></i> Beranda<span class="sr-only">(current)</span></a></li>
                         <li><a href="?page=download"> <i class="glyphicon glyphicon-book"></i> Berkas <span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i>Calon Penerima<span class="caret"></span></a>
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="glyphicon glyphicon-user"></i>User<span class="caret"></span></a>
                           <ul class="dropdown-menu">
-                            <li><a href="?page=detail warga">Detail Calon Penerima</a></li>
-                            <li><a href="?page=tambah warga">Tambah User Calon Penerima</a></li>
+                            <li><a href="?page=detail warga">Detail User</a></li>
+                            <li><a href="?page=tambah warga">Tambah User</a></li>
                         </ul>
                     </li>
                         <li class="dropdown">

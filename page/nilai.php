@@ -203,7 +203,6 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                <thead>
 	                    <tr>
 	                        <th>No</th>
-							
 							<th>Nama</th>
 	                        <th>Jenis Bantuan</th>
 	                        <th>Kriteria</th>
@@ -216,8 +215,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                    <?php if ($query = $connection->query("SELECT a.kd_nilai, c.nama AS nama_jenis_bantuan, b.nama AS nama_kriteria, d.nomor, d.nama AS nama_warga, a.nilai FROM nilai a JOIN kriteria b ON a.kd_kriteria=b.kd_kriteria JOIN jenis_bantuan c ON a.kd_jenis_bantuan=c.kd_jenis_bantuan JOIN warga d ON d.nomor=a.nomor")): ?>
 	                        <?php while($row = $query->fetch_assoc()): ?>
 	                        <tr>
-	                            <td><?=$no++?></td>
-															
+	                            <td><?=$no++?></td>					
 								<td><?=$row['nama_warga']?></td>
 	                            <td><?=$row['nama_jenis_bantuan']?></td>
 	                            <td><?=$row['nama_kriteria']?></td>

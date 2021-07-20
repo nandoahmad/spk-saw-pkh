@@ -12,7 +12,7 @@
 			$nama1 = $_FILES['file1']['name'];
 			$x1 = explode('.', $nama1);
 			$ekstensi1 = strtolower(end($x1));
-			$newfilename1 = $namalengkap . "_" . '1' . $nama1;
+			$newfilename1 = $namalengkap . "_" . $nama1;
 			$ukuran1	= $_FILES['file1']['size'];
 			$file_tmp1 = $_FILES['file1']['tmp_name'];
  
