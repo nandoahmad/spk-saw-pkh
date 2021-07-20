@@ -8,14 +8,14 @@ if ($update) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$validasi = false; $err = false;
 	if ($update) {
-		$sql = "UPDATE penilaian SET kd_jenis_bantuan='$_POST[kd_jenis_bantuan]', keterangan='$_POST[keterangan]', bobot='$_POST[bobot]' WHERE kd_penilaian='$_GET[key]'";
+		$sql = "UPDATE penilaian SET kd_kriteria='$_POST[kd_kriteria]', keterangan='$_POST[keterangan]', bobot='$_POST[bobot]' WHERE kd_penilaian='$_GET[key]'";
 	} else {
-		$sql = "INSERT INTO penilaian VALUES (NULL, '$_POST[kd_jenis_bantuan]', '$_POST[kd_jenis_bantuan]', '$_POST[keterangan]', '$_POST[bobot]')";
+		$sql = "INSERT INTO penilaian VALUES (NULL, '$_POST[kd_jenis_bantuan]', '$_POST[kd_kriteria]', '$_POST[keterangan]', '$_POST[bobot]')";
 		$validasi = true;
 	}
 
 	if ($validasi) {
-		$q = $connection->query("SELECT kd_penilaian FROM penilaian WHERE kd_jenis_bantuan=$_POST[kd_jenis_bantuan] AND kd_jenis_bantuan=$_POST[kd_jenis_bantuan] AND keterangan LIKE '%$_POST[keterangan]%' AND bobot=$_POST[bobot]");
+		$q = $connection->query("SELECT kd_penilaian FROM penilaian WHERE kd_jenis_bantuan=$_POST[kd_jenis_bantuan] AND kd_kriteria=$_POST[kd_kriteria] AND keterangan LIKE '%$_POST[keterangan]%' AND bobot=$_POST[bobot]");
 		if ($q->num_rows) {
 			echo alert("Penilaian sudah ada!", "?page=penilaian");
 			$err = true;
@@ -41,7 +41,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	        <div class="panel-body">
 	            <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
 									<div class="form-group">
-	                  <label for="kd_jenis_bantuan">Jenis Bantuan</label>
+	                  <label for="kd_jenis_bantuan">Jenis</label>
 										<select class="form-control" name="kd_jenis_bantuan" id="jenis_bantuan">
 											<option>---</option>
 											<?php $sql = $connection->query("SELECT * FROM jenis_bantuan") ?>
@@ -51,12 +51,12 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 										</select>
 									</div>
 									<div class="form-group">
-	                  <label for="kd_jenis_bantuan">Kriteria</label>
-										<select class="form-control" name="kd_jenis_bantuan" id="kriteria">
+	                  <label for="kd_kriteria">Kriteria</label>
+										<select class="form-control" name="kd_kriteria" id="kriteria">
 											<option>---</option>
 											<?php $sql = $connection->query("SELECT * FROM kriteria") ?>
 											<?php while ($data = $sql->fetch_assoc()): ?>
-												<option value="<?=$data["kd_jenis_bantuan"]?>" class="<?=$data["kd_jenis_bantuan"]?>" <?= (!$update) ?: (($row["kd_jenis_bantuan"] != $data["kd_jenis_bantuan"]) ?: 'selected="selected"') ?>><?=$data["nama"]?></option>
+												<option value="<?=$data["kd_kriteria"]?>" class="<?=$data["kd_jenis_bantuan"]?>" <?= (!$update) ?: (($row["kd_kriteria"] != $data["kd_kriteria"]) ?: 'selected="selected"') ?>><?=$data["nama"]?></option>
 											<?php endwhile; ?>
 										</select>
 									</div>
@@ -78,13 +78,13 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	</div>
 	<div class="col-md-8">
 	    <div class="panel panel-info">
-	        <div class="panel-heading"><h3 class="text-center">PENILAIAN SUB KRITERIA</h3></div>
+	        <div class="panel-heading"><h3 class="text-center">DAFTAR</h3></div>
 	        <div class="panel-body">
 	            <table class="table table-condensed">
 	                <thead>
 	                    <tr>
 	                        <th>No</th>
-	                        <th>Jenis Bantuan</th>
+	                        <th>Jenis</th>
 	                        <th>Kriteria</th>
 	                        <th>Keterangan</th>
 	                        <th>Bobot</th>
@@ -93,7 +93,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                </thead>
 	                <tbody>
 	                    <?php $no = 1; ?>
-	                    <?php if ($query = $connection->query("SELECT a.kd_penilaian, c.nama AS nama_jenis_bantuan, b.nama AS nama_kriteria, a.keterangan, a.bobot FROM penilaian a JOIN kriteria b ON a.kd_jenis_bantuan=b.kd_jenis_bantuan JOIN jenis_bantuan c ON a.kd_jenis_bantuan=c.kd_jenis_bantuan")): ?>
+	                    <?php if ($query = $connection->query("SELECT a.kd_penilaian, c.nama AS nama_jenis_bantuan, b.nama AS nama_kriteria, a.keterangan, a.bobot FROM penilaian a JOIN kriteria b ON a.kd_kriteria=b.kd_kriteria JOIN jenis_bantuan c ON a.kd_jenis_bantuan=c.kd_jenis_bantuan")): ?>
 	                        <?php while($row = $query->fetch_assoc()): ?>
 	                        <tr>
 	                            <td><?=$no++?></td>
@@ -103,7 +103,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                            <td><?=$row['bobot']?></td>
 	                            <td>
 	                                <div class="btn-group">
-	                                    <a href="?page=penilaian&action=update&key=<?=$row['kd_penilaian']?>" class="btn btn-info btn-xs">Edit</a>
+	                                    <a href="?page=penilaian&action=update&key=<?=$row['kd_penilaian']?>" class="btn btn-warning btn-xs">Edit</a>
 	                                    <a href="?page=penilaian&action=delete&key=<?=$row['kd_penilaian']?>" class="btn btn-danger btn-xs">Hapus</a>
 	                                </div>
 	                            </td>

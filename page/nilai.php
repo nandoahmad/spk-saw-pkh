@@ -75,17 +75,116 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 										<?php endif; ?>
 									</div>
 									<?php if ($_POST): ?>
-										<?php $q = $connection->query("SELECT * FROM kriteria WHERE kd_jenis_bantuan=$_POST[kd_jenis_bantuan]"); while ($r = $q->fetch_assoc()): ?>
-				                <div class="form-group">
-					                  <label for="nilai"><?=ucfirst($r["nama"])?></label>
-														<select class="form-control" name="nilai[<?=$r["kd_kriteria"]?>]" id="nilai">
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.kondisi_ibu WHERE warga.nomor=$_POST[nomor]"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.anak_balita WHERE warga.nomor=$_POST[nomor] && kriteria.kd_kriteria='18'"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.anak_sd WHERE warga.nomor=$_POST[nomor] && kriteria.kd_kriteria='19'"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.anak_smp WHERE warga.nomor=$_POST[nomor] && kriteria.kd_kriteria='20'"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.anak_sma WHERE warga.nomor=$_POST[nomor] && kriteria.kd_kriteria='21'"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.lanjut_usia WHERE warga.nomor=$_POST[nomor]"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<!-- ------------- -->
+										<?php $q = $connection->query("SELECT kriteria.nama, penilaian.keterangan, kriteria.kd_kriteria FROM kriteria JOIN penilaian ON kriteria.kd_kriteria = penilaian.kd_kriteria JOIN warga ON penilaian.keterangan = warga.disabilitas WHERE warga.nomor=$_POST[nomor]"); 
+										$u = $q->fetch_assoc(); ?>
+										<?php $q = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$u[kd_kriteria] AND keterangan='$u[keterangan]'"); 
+										$y = $q->fetch_assoc(); ?>
+										<div class="form-group">
+										<label for="nomor"><?=$u['nama']?></label>
+												<input type="text" name="nilai[<?=$u["kd_kriteria"]?>]" value="<?=$u['keterangan'] ?>" class="form-control" disabled>
+												<div hidden="on">
+										<input type="text" name="nilai[<?=$y["kd_kriteria"]?>]" value="<?=$y['bobot'] ?>" class="form-control"  >
+										</div>
+										</div>
+										<!-- -------------- -->
+
+										<?php $q = $connection->query("SELECT * FROM kriteria WHERE kd_jenis_bantuan=$_POST[kd_jenis_bantuan] and kd_kriteria='24'"); 
+										$i = $q->fetch_assoc(); ?>
+										<div class="form-group">
+				          				<label for="nilai"><?=ucfirst($i["nama"])?></label>
+														<select class="form-control" name="nilai[<?=$i["kd_kriteria"]?>]" id="nilai">
 															<option>---</option>
-															<?php $sql = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$r[kd_kriteria]"); while ($data = $sql->fetch_assoc()): ?>
+															<?php $sql = $connection->query("SELECT * FROM penilaian WHERE kd_kriteria=$i[kd_kriteria]"); while ($data = $sql->fetch_assoc()): ?>
 																<option value="<?=$data["bobot"]?>" class="<?=$data["kd_kriteria"]?>"<?= (!$update) ? "" : (($row["kd_penilaian"] != $data["kd_penilaian"]) ? "" : ' selected="selected"') ?>><?=$data["keterangan"]?></option>
 															<?php endwhile; ?>
 														</select>
-				                </div>
-										<?php endwhile; ?>
+															</div>
+
 										<input type="hidden" name="save" value="true">
 									<?php endif; ?>
 	                <button type="submit" id="simpan" class="btn btn-<?= ($update) ? "warning" : "info" ?> btn-block"><?=($_POST) ? "Simpan" : "Tampilkan"?></button>

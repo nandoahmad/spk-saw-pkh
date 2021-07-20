@@ -41,7 +41,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	        <div class="panel-body">
 	            <form action="<?=$_SERVER['REQUEST_URI']?>" method="POST">
 									<div class="form-group">
-										<label for="kd_jenis_bantuan">Jenis Bantuan</label>
+										<label for="kd_jenis_bantuan">Jenis</label>
 										<select class="form-control" name="kd_jenis_bantuan">
 											<option>---</option>
 											<?php $query = $connection->query("SELECT * FROM jenis_bantuan"); while ($data = $query->fetch_assoc()): ?>
@@ -77,7 +77,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                <thead>
 	                    <tr>
 	                        <th>No</th>
-	                        <th>Jenis Bantuan</th>
+	                        <th>Beasiswa</th>
 	                        <th>Kriteria</th>
 	                        <th>Sifat</th>
 	                        <th>Aksi</th>
@@ -94,7 +94,7 @@ if (isset($_GET['action']) AND $_GET['action'] == 'delete') {
 	                            <td><?=$row['sifat']?></td>
 	                            <td>
 	                                <div class="btn-group">
-	                                    <a href="?page=kriteria&action=update&key=<?=$row['kd_kriteria']?>" class="btn btn-info btn-xs">Edit</a>
+	                                    <a href="?page=kriteria&action=update&key=<?=$row['kd_kriteria']?>" class="btn btn-warning btn-xs">Edit</a>
 	                                    <a href="?page=kriteria&action=delete&key=<?=$row['kd_kriteria']?>" class="btn btn-danger btn-xs">Hapus</a>
 	                                </div>
 	                            </td>
