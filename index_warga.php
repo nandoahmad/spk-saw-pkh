@@ -10,7 +10,7 @@ if (!isset($_SESSION["is_logged"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perekrutan warga Baru</title>
+    <title>Bantuan PKH</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.chained.min.js"></script>

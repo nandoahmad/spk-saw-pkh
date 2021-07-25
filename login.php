@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perekrutan warga Baru</title>
+    <title>Bantuan PKH</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <style>
         body {
@@ -49,7 +49,7 @@
                          }
                     ?>
                     <div class="link">
-                        <a href="tambah_user.php">Buat Akun Baru</a>
+                        <a href="tambah_user.php">Buat Akun Baru Warga</a>
                         </div>
                     </div>
                 </div>

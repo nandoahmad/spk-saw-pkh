@@ -33,10 +33,6 @@ if($_POST){
              <input type="text" value="<?= $data->password ?>" class="form-control" name="password">
          </div>
          <div class="form-group">
-             <label>E-mail</label>
-             <input type="email" value="<?= $data->email ?>" class="form-control" name="email">
-         </div>
-         <div class="form-group">
              <label>Status</label>
              <input type="text" value="<?= $data->status ?>" class="form-control" name="status">
          </div>
